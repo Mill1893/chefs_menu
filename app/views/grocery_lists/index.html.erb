@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Grocery lists" %>
+
+<h1>Grocery lists</h1>
+
+<div id="grocery_lists">
+  <% @grocery_lists.each do |grocery_list| %>
+    <%= render grocery_list %>
+    <p>
+      <%= link_to "Show this grocery list", grocery_list %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New grocery list", new_grocery_list_path %>

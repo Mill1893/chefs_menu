@@ -1,0 +1,22 @@
+<%= form_with(model: daily_menu) do |form| %>
+  <% if daily_menu.errors.any? %>
+    <div style="color: #b94a48; background: #f2dede; border: 1px solid #eed3d7; padding: 1em; border-radius: 6px; margin-bottom: 1em;">
+      <h2><%= pluralize(daily_menu.errors.count, "error") %> prohibited this daily_menu from being saved:</h2>
+
+      <ul>
+        <% daily_menu.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :date, style: "display:block;font-weight:bold;" %>
+    <%= form.date_field :date %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn', style: 'background:#222;color:#fff;padding:0.7em 2em;border:none;border-radius:4px;font-size:1.1em;cursor:pointer;' %>
+  </div>
+<% end %>

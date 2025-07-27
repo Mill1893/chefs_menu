@@ -1,0 +1,37 @@
+<%= form_with(model: daily_menu_item) do |form| %>
+  <% if daily_menu_item.errors.any? %>
+    <div style="color: #b94a48; background: #f2dede; border: 1px solid #eed3d7; padding: 1em; border-radius: 6px; margin-bottom: 1em;">
+      <h2><%= pluralize(daily_menu_item.errors.count, "error") %> prohibited this daily_menu_item from being saved:</h2>
+
+      <ul>
+        <% daily_menu_item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description, rows: 3 %>
+  </div>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div>
+    <%= form.label :daily_menu_id, style: "display: block" %>
+    <%= form.collection_select :daily_menu_id, DailyMenu.all, :id, :date, {prompt: 'Select daily menu'}, {style: 'width:100%;padding:0.5em;border-radius:4px;border:1px solid #ccc;'} %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn', style: 'background:#222;color:#fff;padding:0.7em 2em;border:none;border-radius:4px;font-size:1.1em;cursor:pointer;' %>
+  </div>
+<% end %>

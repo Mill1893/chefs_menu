@@ -1,0 +1,11 @@
+<% content_for :title, "New daily menu item" %>
+
+<h1>New daily menu item</h1>
+
+<%= render "form", daily_menu_item: @daily_menu_item %>
+
+<br>
+
+<div>
+  <%= link_to "Back to daily menu items", daily_menu_items_path %>
+</div>

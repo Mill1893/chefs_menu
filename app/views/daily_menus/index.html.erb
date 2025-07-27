@@ -1,0 +1,27 @@
+<% content_for :title, "Daily Menus" %>
+<h1 style="margin-bottom:1.5rem;">Daily Menus</h1>
+<div style="overflow-x:auto;">
+  <table style="width:100%;border-collapse:collapse;background:#fff;box-shadow:0 2px 8px #eee;">
+    <thead>
+      <tr style="background:#f5f5f5;">
+        <th style="padding:0.7em 1em;text-align:left;">Date</th>
+        <th style="padding:0.7em 1em;text-align:left;">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @daily_menus.each do |daily_menu| %>
+        <tr>
+          <td style="padding:0.7em 1em;"> <%= daily_menu.date %> </td>
+          <td style="padding:0.7em 1em;">
+            <%= link_to 'Show', daily_menu, style: 'margin-right:0.5em;' %>
+            <%= link_to 'Edit', edit_daily_menu_path(daily_menu), style: 'margin-right:0.5em;' %>
+            <%= link_to 'Delete', daily_menu, method: :delete, data: { confirm: 'Are you sure?' }, style: 'color:#b94a48;' %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div style="margin-top:2em;">
+  <%= link_to "New Daily Menu", new_daily_menu_path, class: 'btn', style: 'background:#222;color:#fff;padding:0.7em 2em;border:none;border-radius:4px;font-size:1.1em;text-decoration:none;' %>
+</div>

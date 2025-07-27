@@ -1,0 +1,12 @@
+<% content_for :title, "Editing daily menu" %>
+
+<h1>Editing daily menu</h1>
+
+<%= render "form", daily_menu: @daily_menu %>
+
+<br>
+
+<div>
+  <%= link_to "Show this daily menu", @daily_menu %> |
+  <%= link_to "Back to daily menus", daily_menus_path %>
+</div>

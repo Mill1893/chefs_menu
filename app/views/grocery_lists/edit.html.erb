@@ -1,0 +1,12 @@
+<% content_for :title, "Editing grocery list" %>
+
+<h1>Editing grocery list</h1>
+
+<%= render "form", grocery_list: @grocery_list %>
+
+<br>
+
+<div>
+  <%= link_to "Show this grocery list", @grocery_list %> |
+  <%= link_to "Back to grocery lists", grocery_lists_path %>
+</div>

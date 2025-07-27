@@ -1,0 +1,32 @@
+<%= form_with(model: menu_item) do |form| %>
+  <% if menu_item.errors.any? %>
+    <div style="color: #b94a48; background: #f2dede; border: 1px solid #eed3d7; padding: 1em; border-radius: 6px; margin-bottom: 1em;">
+      <h2><%= pluralize(menu_item.errors.count, "error") %> prohibited this menu_item from being saved:</h2>
+
+      <ul>
+        <% menu_item.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div>
+    <%= form.label :category, style: "display: block" %>
+    <%= form.text_field :category %>
+  </div>
+
+  <div>
+    <%= form.submit class: 'btn', style: 'background:#222;color:#fff;padding:0.7em 2em;border:none;border-radius:4px;font-size:1.1em;cursor:pointer;' %>
+  </div>
+<% end %>

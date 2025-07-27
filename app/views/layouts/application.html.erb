@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Chefs Menu" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
+    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
+
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+
+    <%# Includes all stylesheet files in app/assets/stylesheets %>
+    <%= stylesheet_link_tag :app %>
+  </head>
+
+  <body style="background:#f8f9fa;min-height:100vh;">
+    <% if user_signed_in? && current_user.role == 'super_admin' %>
+      <nav style="background:#222;color:#fff;padding:1rem 0 1rem 0;margin-bottom:2rem;box-shadow:0 2px 8px #eee;">
+        <div style="max-width:900px;margin:0 auto;display:flex;align-items:center;gap:2rem;">
+          <span style="font-weight:bold;font-size:1.2rem;">Chef Admin</span>
+          <%= link_to 'Menu Items', menu_items_path, style: 'color:#fff;text-decoration:none;' %>
+          <%= link_to 'Daily Menus', daily_menus_path, style: 'color:#fff;text-decoration:none;' %>
+          <%= link_to 'Grocery Lists', grocery_lists_path, style: 'color:#fff;text-decoration:none;' %>
+          <span style="flex:1"></span>
+          <%= link_to 'Log out', destroy_user_session_path, method: :delete, style: 'color:#fff;text-decoration:none;' %>
+        </div>
+      </nav>
+    <% end %>
+    <%= yield %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </body>
+</html>

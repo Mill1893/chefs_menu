@@ -1,0 +1,11 @@
+<% content_for :title, "New grocery list" %>
+
+<h1>New grocery list</h1>
+
+<%= render "form", grocery_list: @grocery_list %>
+
+<br>
+
+<div>
+  <%= link_to "Back to grocery lists", grocery_lists_path %>
+</div>

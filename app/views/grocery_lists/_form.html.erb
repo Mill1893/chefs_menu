@@ -1,0 +1,22 @@
+<%= form_with(model: grocery_list) do |form| %>
+  <% if grocery_list.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(grocery_list.errors.count, "error") %> prohibited this grocery_list from being saved:</h2>
+
+      <ul>
+        <% grocery_list.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :daily_menu_id, style: "display: block" %>
+    <%= form.text_field :daily_menu_id %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

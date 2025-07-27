@@ -1,0 +1,14 @@
+<% content_for :title, @menu_item.name %>
+<div style="max-width:600px;margin:2rem auto;padding:2rem;background:#fff;border-radius:8px;box-shadow:0 2px 8px #eee;">
+  <h2 style="margin-top:0;">Menu Item Details</h2>
+  <table style="width:100%;margin-bottom:1.5em;">
+    <tr><th style="text-align:left;padding-right:1em;">Name:</th><td><%= @menu_item.name %></td></tr>
+    <tr><th style="text-align:left;padding-right:1em;">Category:</th><td><%= @menu_item.category %></td></tr>
+    <tr><th style="text-align:left;padding-right:1em;">Description:</th><td><%= @menu_item.description %></td></tr>
+  </table>
+  <div style="display:flex;gap:1em;">
+    <%= link_to "Edit", edit_menu_item_path(@menu_item), class: 'btn', style: 'background:#222;color:#fff;padding:0.5em 1.5em;border:none;border-radius:4px;text-decoration:none;' %>
+    <%= button_to "Delete", @menu_item, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn', style: 'background:#b94a48;color:#fff;padding:0.5em 1.5em;border:none;border-radius:4px;' %>
+    <%= link_to "Back", menu_items_path, style: 'margin-left:auto;text-decoration:none;color:#222;' %>
+  </div>
+</div>
